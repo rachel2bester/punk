@@ -21,7 +21,11 @@ const BeerInfo = () => {
 
     return (
         <>
-        {loaded && <div>Name: {beer.name}</div>}
+        {loaded ? <>
+            <h1>Name: {beer.name}</h1>
+            <h2>Tagline: {beer.tagline}</h2>
+            </> 
+            : <p>Loading</p>}
         </>
         
     )

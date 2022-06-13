@@ -1,0 +1,17 @@
+
+.card {
+    border: 2px solid black;
+    height: 300px;
+    width: 200px;
+
+    &__heading {
+        font-size: 25px;
+
+    }
+    &__tagline {
+        font-size: 15px;
+    }
+    &__img {
+        height: 200px;
+    }
+}
