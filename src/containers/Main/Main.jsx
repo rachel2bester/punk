@@ -1,12 +1,44 @@
-import React from 'react'
-import { CardList } from '../CardList/CardList'
+import React, { useState, useEffect } from "react";
+import { BeerList } from "../BeerList/BeerList";
+import Filters from "../Filters/Filters";
 
-const Main = () => {
-  return (<>
-      <p>Main</p>
-      <CardList title="All Beers" url="https://api.punkapi.com/v2/beers"/>
-    </>
-  )
-}
+const Main = (props) => {
+	const { baseURL } = props;
+	const [name, setName] = useState("");
+	const [hops, setHops] = useState("");
+	const [yeast, setYeast] = useState("");
+	const [malt, setMalt] = useState("");
+	const [food, setFood] = useState("");
+	
+	
+	const onNameChange = (event) => {
+		setName(event.target.value);
+	};
+	
+	const onHopsChange = (event) => {
+		setHops(event.target.value);
+	};
+	
+	const onYeastChange = (event) => {
+		setYeast(event.target.value);
+	};
+	
+	const onMaltChange = (event) => {
+		setMalt(event.target.value);
+	};
+	
+	const onFoodChange = (event) => {
+		setFood(event.target.value);
+	};
 
-export default Main
+ 	return (
+		<>
+			<p>Main</p>
+			<Filters onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
+			<p>{name}</p>
+			<BeerList title="Beers" hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={baseURL} />
+		</>
+  	);
+};
+
+export default Main;

@@ -6,13 +6,15 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import BeerInfo from './containers/BeerInfo/BeerInfo';
 
 function App() {
+  const url = "https://api.punkapi.com/v2/beers"
   return (
     <Router>
       <div className="App">
         <NavBar/>
         <Routes>
-          <Route path="/" element={<Main/>}/>
-          <Route path="/beer/:beerId" element={<BeerInfo/>}/>
+          <Route path="/" element={<Main baseURL={url}/>}/>
+          <Route path="/beer/:beerId" element={<BeerInfo baseURL={url}/>}/>
+          {/* <Route path="/all-beers" element={<BeerList /> }/> */}
         </Routes>
         
       </div>
