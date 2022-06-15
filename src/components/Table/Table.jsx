@@ -1,34 +1,36 @@
-import { isValidInputTimeValue } from '@testing-library/user-event/dist/utils'
+
 import React from 'react'
 
 const Table = (props) => {
-    const {arr} = props
+    const {arr, title} = props
     console.log(arr)
 
     return (<>
+        <h1>{title}</h1>
         
         <table>
-            <tr>
-                {Object.keys(arr[0]).map((key) => <th>{key}</th>)}
-            </tr>
-            
+            <thead>
+                <tr>
+                    {Object.keys(arr[0]).map((key) => <th>{key}</th>)}
+                </tr>
+            </thead>
+            <tbody>
                 {arr.map((el) => {
-                    <tr>
-                    {Object.values(el).map((value) => {
-                        if (typeof(value) != "object") {
-                            return <td>{value}</td>;
-                        } else {
-                            return 1;
-                        }
-                    })}
-                    </tr>
+                    return (
+                        <tr>
+                            {Object.values(el).map((value) => {
+                                if (typeof(value) != "object") {
+                                    return <td>{value}</td>;
+                                } else {
+                                    return Object.values(value).join(" ");
+                                } 
+                            })}
+                        </tr>
+                    )
                 })}
-             
-            
-                
-
-        </table> 
-        </> 
+            </tbody>
+        </table>
+        </>
     )
 } 
 

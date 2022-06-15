@@ -17,7 +17,6 @@ const BeerInfo = (props) => {
         
         setLoaded(true)
         console.log(beer)
-        console.log(beer.ingredients.hops)
     } 
 
 
@@ -33,13 +32,15 @@ const BeerInfo = (props) => {
                     <>
                         <h1>Name: {beer.name}</h1>
                         <h2>Tagline: {beer.tagline}</h2>
-                        <h3>Hops:</h3>
+                        
+                        <Table title="Hops" key={0} arr={beer.ingredients.hops}/>
+                        <Table title="Malt" key={1} arr={beer.ingredients.malt}/>
+                        <h3>Yeast: {beer.ingredients.yeast}</h3>
+                    </>  
+                    : <p>ERROR</p>
+                ) 
 
-                        <Table arr={beer.ingredients.hops}/>
-                    </> 
-                    : <p>ERROR</p>) 
-
-                : <p>Loading</p> 
+                : <p>Loading Beer Info...</p> 
             }
         </>
         
