@@ -33,9 +33,8 @@ const Main = (props) => {
 
  	return (
 		<>
-			<p>{title}</p>
+			<h1>{title}</h1>
 			<Filters onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
-			<p>{name}</p>
 			<BeerList title="Beers" hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={baseURL} />
 		</>
   	);

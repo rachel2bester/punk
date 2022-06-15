@@ -1,6 +1,7 @@
 import Card from '../../components/Card/Card';
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
+import "./BeerList.scss"
 
 
 export const BeerList = (props) => {
@@ -57,6 +58,7 @@ export const BeerList = (props) => {
         <>
             <h1>{title}</h1>
             <p>{name}</p>
+            <div className='cards'>
         
             {loaded ? 
                 ( responseOK ?
@@ -65,6 +67,7 @@ export const BeerList = (props) => {
 
                 : <p>Loading</p>
             }
+            </div>
             
         </>
     )
