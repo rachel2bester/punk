@@ -20,6 +20,7 @@ const BeerInfo = (props) => {
     } 
 
 
+
     useEffect(() => {
         getBeerInfo(baseURL)
     }, []);
@@ -30,11 +31,13 @@ const BeerInfo = (props) => {
             {loaded ? 
                 ( responseOK ?
                     <>
-                        <h1>Name: {beer.name}</h1>
-                        <h2>Tagline: {beer.tagline}</h2>
+                        <h1>{beer.name}</h1>
+                        <img src={beer.image_url} alt="beer.name" />
+                        <h2>{beer.tagline}</h2>
+
                         
-                        <Table title="Hops" key={0} arr={beer.ingredients.hops}/>
-                        <Table title="Malt" key={1} arr={beer.ingredients.malt}/>
+                        <Table title="Hops" key={`${beer.id}hops`} arr={beer.ingredients.hops}/>
+                        <Table title="Malt" key={`${beer.id}malt`} arr={beer.ingredients.malt}/>
                         <h3>Yeast: {beer.ingredients.yeast}</h3>
                     </>  
                     : <p>ERROR</p>

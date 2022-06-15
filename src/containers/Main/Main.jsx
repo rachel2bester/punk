@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { BeerList } from "../BeerList/BeerList";
 import Filters from "../Filters/Filters";
 
 const Main = (props) => {
-	const { baseURL } = props;
+	const { baseURL, title } = props;
 	const [name, setName] = useState("");
 	const [hops, setHops] = useState("");
 	const [yeast, setYeast] = useState("");
@@ -33,7 +33,7 @@ const Main = (props) => {
 
  	return (
 		<>
-			<p>Main</p>
+			<p>{title}</p>
 			<Filters onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
 			<p>{name}</p>
 			<BeerList title="Beers" hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={baseURL} />

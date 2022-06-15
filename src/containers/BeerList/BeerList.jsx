@@ -13,10 +13,8 @@ export const BeerList = (props) => {
     const [responseOK, setResponseOK] = useState(undefined);
 
     const getCardsJSX = async (baseURL) => {
-        let url = baseURL +"?";
+        let url = baseURL.includes("?") ?  baseURL +"&" : baseURL + "?"
 
-
- 
         if (name) {
             url += `&beer_name=${name}`
         }
@@ -40,7 +38,7 @@ export const BeerList = (props) => {
         setResponseOK(response.ok)
         setCardsJSX(data.map((beer) => {
             return (
-                <Link to={"/beer/" + beer.id} key={beer.id}>
+                <Link to={"/beers/" + beer.id} key={beer.id}>
                     <Card  name={beer.name} tagline={beer.tagline} hops={beer.hops} img={beer.image_url} />
                 </Link>
             )

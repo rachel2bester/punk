@@ -6,21 +6,13 @@ const Filters = (props) => {
     return (
         <div>Filters
             
-        <SearchBar label={"name"} onChange={onNameChange}/>
-        <SearchBar label={"hops"} onChange={onHopsChange}/>
-        <SearchBar label={"yeast"} onChange={onYeastChange}/>
-        <SearchBar label={"malt"} onChange={onMaltChange}/>
-        <SearchBar label={"food"} onChange={onFoodChange}/>
+            <SearchBar label={"name"} onChange={onNameChange}/>
+            <SearchBar label={"hops"} onChange={onHopsChange}/>
+            <SearchBar label={"yeast"} onChange={onYeastChange}/>
+            <SearchBar label={"malt"} onChange={onMaltChange}/>
+            <SearchBar label={"food"} onChange={onFoodChange}/>
 
-    </div>
-    /*
-            Page
-            Search - name
-            Search - hops name
-            Search - malt name
-            Search - food name
-            
-            */
+        </div>
     )
 }
 
