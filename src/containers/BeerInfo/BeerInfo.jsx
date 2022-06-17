@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import BeerDisplay from '../../components/BeerDisplay/BeerDisplay';
 import Table from '../../components/Table/Table';
+import Srm from '../../components/Srm/Srm';
+import "./BeerInfo.scss"
 
 const BeerInfo = (props) => {
     const {baseURL} = props
@@ -19,8 +21,6 @@ const BeerInfo = (props) => {
         console.log(beer)
     } 
 
-
-
     useEffect(() => {
         getBeerInfo(baseURL)
     }, []);
@@ -30,23 +30,30 @@ const BeerInfo = (props) => {
         <>
             {loaded ? 
                 ( responseOK ?
-                    <>
+                    <div className='beer-info'>
                         <BeerDisplay name={beer.name} imgUrl={beer.image_url} tagline={beer.tagline}/>
 
-                        <h2>Brewers Tip:</h2>
-                        <h3>{beer.brewers_tips}</h3>
+                        <h1 className='beer-info__heading'>{beer.description}</h1>
+                        <Srm srm={beer.srm}/>
 
-                        <h4>Ingredients</h4>
-                        <h5>Yeast: {beer.ingredients.yeast}</h5>
+                        <div className='beer-info__brewing'>
+                            <h2 className='beer-info__brewing__heading'>Brewers Tip:</h2>
+                            <p className='beer-info__brewing__p'>{beer.brewers_tips}</p>
+
+                            <h3 className='beer-info__brewing__heading'>Ingredients</h3>
+                            <h4 className='beer-info__brewing__subheading'>Yeast: {beer.ingredients.yeast}</h4>
+
+                            <div className='beer-info__brewing__tables'>
+                                <Table title="Hops" key={`${beer.id}hops`} arr={beer.ingredients.hops}/>
+                                <Table title="Malt" key={`${beer.id}malt`} arr={beer.ingredients.malt}/>
+                            </div>
+                        </div>
                         
-                        <Table title="Hops" key={`${beer.id}hops`} arr={beer.ingredients.hops}/>
-                        <Table title="Malt" key={`${beer.id}malt`} arr={beer.ingredients.malt}/>
-                        
-                    </>  
-                    : <p>ERROR</p>
+                    </div>  
+                    : <p className='beer-info__heading'>ERROR</p>
                 ) 
 
-                : <p>Loading Beer Info...</p> 
+                : <p className='beer-info__heading'>Loading Beer Info...</p> 
             }
         </>
         

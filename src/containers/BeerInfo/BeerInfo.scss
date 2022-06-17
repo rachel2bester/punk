@@ -2,4 +2,53 @@
 
 .beer-info {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__heading {
+        font-family: $heading-font;
+        color: $black;
+        margin: 50px;
+    }
+
+    &__srm {
+
+    }
+
+    &__brewing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $tertiary-color;
+        color: white;
+
+ 
+        &__heading {
+            font-family: $heading-font;
+            font-size: 50px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+    
+        &__subheading{
+            font-family: $heading-font;
+            font-size: 30px;
+            font-weight: normal;
+            margin: 8px;
+        }
+    
+        &__tables {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    
+        &__p {
+            width: 80%;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 0px;
+        }
+    }
 }

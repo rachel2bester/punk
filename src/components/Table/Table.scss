@@ -1,15 +1,23 @@
 @use "../../assets/sass/variables" as *;
 
+h1 {
+    text-align: center;
+}
 .table {
     background-color: $secondary-color;
+    margin: 20px;
+    text-align: center;
 
     * {
-        background-color: $primary-color;
-        padding: 5px;
+        background-color: $white;
+        padding: 10px;
+        color: black;
         border: 1px solid $secondary-color;
     }
 
     &__heading {
-        font-weight: bold;
+        font-family: $heading-font;
+        font-weight: normal;
+        font-size: 20px;
     }
 }

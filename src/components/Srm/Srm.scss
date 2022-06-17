@@ -1,0 +1,104 @@
+@use "../../assets/sass/variables" as *;
+
+.srm {
+    background-color: black;
+    
+    width: 100vw;
+
+    &__heading {
+        color: white;
+        font-family: $heading-font;
+    }
+
+
+    &--1 {
+        background-color: #F3F993;
+    }
+    &--2 {
+        background-color: #F5F75C;
+    }
+    &--3 {
+        background-color: #F6F513
+    }
+    &--4 {
+        background-color: #EAE615
+    }
+    &--5 {
+        background-color: #E0D01B
+    }
+    &--6 {
+        background-color: #D5BC26
+    }
+    &--7 {
+        background-color: #CDAA37
+    }
+    &--8 {
+        background-color: #C1963C
+    }
+    &--9 {
+        background-color: #BE8C3A
+    }
+    &--10 {
+        background-color: #BE823A
+    }
+    &--11 {
+        background-color: #C17A37
+    }
+    &--12 {
+        background-color: #BF7138
+    }
+    &--13 {
+        background-color: #BC6733
+    }
+    &--14 {
+        background-color: #B26033
+    }
+    &--15 {
+        background-color: #A85839
+    }
+    &--16 {
+        background-color: #985336
+    }
+    &--17 {
+        background-color: #8D4C32
+    }
+    &--18 {
+        background-color: #7C452D
+    }
+    &--19 {
+        background-color: #6B3A1E
+    }
+    &--20 {
+        background-color: #5D341A
+    }
+    &--21 {
+        background-color: #4E2A0C
+    }
+    &--22 {
+        background-color: #4A2727
+    }
+    &--23 {
+        background-color: #361F1B
+    }
+    &--24 {
+        background-color: #261716
+    }
+    &--25 {
+        background-color: #231716
+    }
+    &--26 {
+        background-color: #19100F
+    }
+    &--27 {
+        background-color: #16100F
+    }
+    &--28 {
+        background-color: #120D0C
+    }
+    &--29 {
+        background-color: #100B0A
+    }
+    &--30 {
+        background-color: #050B0A
+    }
+}
