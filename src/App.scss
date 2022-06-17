@@ -1,3 +1,5 @@
+@use "./assets/sass/variables" as *;
+
 body {
-    color: red;
+    background-color: $secondary-color;
 }

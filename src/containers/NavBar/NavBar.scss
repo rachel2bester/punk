@@ -1,10 +1,16 @@
+@use "../../assets/sass/variables" as *;
+
 .navbar {
     display: grid;
-    grid-template-columns: 50px 50px 1fr 90px;
+    grid-template-columns: 70px 1fr 120px;
     width: 100vw;
-    height:50px;
-    color: white;
-    background-color: black;
+    height: 40px;
+
+    color: $black;
+    background-color: rgb(67,201,213);
     text-decoration: none;
+    font-family: $heading-font;
+    font-size: 30px;
+    text-align: center;
     
 }

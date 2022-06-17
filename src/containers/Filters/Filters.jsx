@@ -4,7 +4,7 @@ import SearchBar from '../../components/Search/SearchBar'
 const Filters = (props) => {
     const {onNameChange, onHopsChange, onMaltChange, onFoodChange, onYeastChange} = props
     return (
-        <div>Filters
+        <div>
             
             <SearchBar label={"name"} onChange={onNameChange}/>
             <SearchBar label={"hops"} onChange={onHopsChange}/>
