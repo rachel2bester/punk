@@ -1,9 +1,13 @@
 @use "../../assets/sass/variables" as *;
+@use "../../assets/sass/variables" as *;
 
-.random-beer {
+.beer {
     background-color: $black;
     color: white;
     margin: 20px;
+
+    background: $secondary-color;
+    background: radial-gradient(circle, $secondary-color  0%, $black  100%);
     
 
     &__container {
@@ -21,8 +25,6 @@
         margin: 5px;
     }
 
-
-
     &__img {
         height: 400px;
         margin-bottom: 0px;
@@ -37,7 +39,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .random-beer {
+    .beer {
         width: 90%;
 
         &__name {
@@ -48,7 +50,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .random-beer {
+    .beer {
         width: 80vw;
         &__img {
             margin-top: 50px;

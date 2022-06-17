@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import RandomBeer from '../../components/RandomBeer/RandomBeer'
+import RandomBeer from '../RandomBeer/RandomBeer'
 import "./Home.scss"
 
 const Home = ({url}) => {

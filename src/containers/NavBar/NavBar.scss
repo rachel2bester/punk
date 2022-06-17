@@ -6,6 +6,9 @@
     width: 99.5;
     height: 45px;
     align-self: center;
+    position: sticky;
+    z-index: 1;
+    top: 0;
     
 
     color: $black;

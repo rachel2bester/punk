@@ -1,19 +1,15 @@
 @use "../../assets/sass/variables" as *;
 
 .table {
-    border: solid black 1px;
-    
-    background-color: white;
+    background-color: $secondary-color;
 
     * {
-        
-        color: black;
         background-color: $primary-color;
         padding: 5px;
-        
+        border: 1px solid $secondary-color;
     }
+
     &__heading {
         font-weight: bold;
-
     }
 }

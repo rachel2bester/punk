@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import BeerDisplay from '../../components/BeerDisplay/BeerDisplay'
 import "./RandomBeer.scss"
 
 const RandomBeer = ({url}) => {
@@ -30,14 +31,7 @@ const RandomBeer = ({url}) => {
         ( responseOK ?
 
             <Link to={"/beers/" + beer.id}>
-          
-                <div className='random-beer'>
-                    <div className='random-beer__container'>
-                        <h2 className='random-beer__name'>{beer.name}</h2>
-                        {beer.image_url && <img className='random-beer__img' src={beer.image_url} alt={beer.name} />}
-                    </div>
-                    <h3 className='random-beer__tagline'>{beer.tagline}</h3>
-                </div>  
+                <BeerDisplay name={beer.name} imgUrl={beer.image_url} tagline={beer.tagline}/> 
             </Link>
             : <h1 className='random-beer__tagline'>ERROR</h1>
             

@@ -1,0 +1,63 @@
+@use "../../assets/sass/variables" as *;
+
+.random-beer {
+    background-color: $black;
+    color: white;
+    margin: 20px;
+
+    background: $secondary-color;
+    background: radial-gradient(circle, $secondary-color  0%, $black  100%);
+    
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px;
+    }
+
+    &__name {
+        font-family: $heading-font;
+        font-size: 90px;
+        padding: 0px;
+        margin: 5px;
+    }
+
+    &__img {
+        height: 400px;
+        margin-bottom: 0px;
+        margin-top: 0;
+    }
+
+    &__tagline {
+        text-align: center;
+        font-family: $heading-font;
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .random-beer {
+        width: 90%;
+
+        &__name {
+            font-size: 70px;
+        }
+
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .random-beer {
+        width: 80vw;
+        &__img {
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        &__container {
+            flex-wrap: nowrap;
+        }
+    }
+}

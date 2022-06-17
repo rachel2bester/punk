@@ -8,7 +8,6 @@
     display:flex;
     justify-content: space-around;
     flex-direction: column;
-    margin: 10px;
     background-color: $tertiary-color;
     color: white;
     margin-top: 30px;
@@ -17,8 +16,6 @@
         font-size: 25px;
         font-style: none;
         font-family: $heading-font;
-
-
     }
     &__tagline {
         font-size: 15px;
