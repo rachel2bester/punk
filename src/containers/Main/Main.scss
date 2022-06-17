@@ -1,1 +1,24 @@
 @use "../../assets/sass/variables" as *;
+
+.main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    
+    grid-template-areas: 
+        "heading heading"
+        "filters beerlist";
+
+        &__heading {
+            grid-area: "heading";
+            font-family: $heading-font;
+            text-align: center;
+            width: 98vw;
+            padding: 5px;
+            font-size: 50px;
+            margin: 0px;
+            background-color: $black;
+            color: white;
+            letter-spacing: 10px;
+            font-weight: normal;
+        }
+}

@@ -13,12 +13,9 @@ function App() {
       <div className="App">
         <NavBar/>
         <Routes>
-        <Route path="/" element={<Home url={url}/>}/>
-          <Route path="/beers" element={<Main title="All Beers" baseURL={url}/>}/>
-          <Route path="/beers/high-alcohol" element={<Main title="High Alcohol Beers" baseURL={url + "?abv_gt=6"}/>}/>
-          <Route path="/beers/classic" element={<Main title="Classic Beers" baseURL={url + "?brewed_before=01-2010"}/>}/>
-          <Route path="/beers/:beerId" element={<BeerInfo baseURL={url}/>}/>
-          {/* <Route path="/all-beers" element={<BeerList /> }/> */}
+			<Route path="/" element={<Home url={url}/>}/>
+			<Route path="/beers" element={<Main title="All Beers" baseURL={url}/>}/>
+			<Route path="/beers/:beerId" element={<BeerInfo baseURL={url}/>}/>
         </Routes>
         
       </div>

@@ -1,5 +1,11 @@
 @use "./assets/sass/variables" as *;
 
-body {
-    background-color: $secondary-color;
+.App {
+    display: grid;
+    grid-template-rows: 45px 1fr;
+    grid-template-areas: 
+        "navbar"
+        "main";
+
+
 }

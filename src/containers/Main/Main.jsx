@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { BeerList } from "../BeerList/BeerList";
 import Filters from "../Filters/Filters";
+import "./Main.scss"
 
 const Main = (props) => {
 	const { baseURL, title } = props;
@@ -54,12 +55,11 @@ const Main = (props) => {
     }
 
  	return (
-		<>
-			<h1>{title}</h1>
-			<p>{url}</p>
+		<div className="main">
+			<h1 className="main__heading">{title}</h1>
 			<Filters onRadioChange={onRadioChange} onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
 			<BeerList hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={url} />
-		</>
+		</div>
   	);
 };
 

@@ -53,18 +53,16 @@ export const BeerList = (props) => {
     }, [name, hops, yeast, malt, food, baseURL]);
 
     return (
-        <>
-            <p>{name}</p>
-            <div className='cards'>
-        
-            {loaded ? 
-                ( responseOK ?
-                    cardsJSX
-                    : <p>ERROR</p>)
 
-                : <p>Loading</p>
-            }
-            </div>
-        </>
+        <div className='cards'>
+    
+        {loaded ? 
+            ( responseOK ?
+                cardsJSX
+                : <p>ERROR</p>)
+
+            : <p>Loading</p>
+        }
+        </div>
     )
 }

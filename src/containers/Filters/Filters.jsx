@@ -1,10 +1,11 @@
 import React from 'react'
 import SearchBar from '../../components/Search/SearchBar'
+import "./Filters.scss"
 
 const Filters = (props) => {
     const {onNameChange, onHopsChange, onMaltChange, onFoodChange, onYeastChange, onRadioChange} = props
     return (
-        <div>
+        <div className='filters'>
             <SearchBar label={"name"} onChange={onNameChange}/>
             <SearchBar label={"hops"} onChange={onHopsChange}/>
             <SearchBar label={"yeast"} onChange={onYeastChange}/>
