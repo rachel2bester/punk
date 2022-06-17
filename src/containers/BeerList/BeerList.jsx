@@ -6,7 +6,7 @@ import "./BeerList.scss"
 
 export const BeerList = (props) => {
     
-    const {baseURL, title, name, malt, food, yeast, hops} = props;
+    const {baseURL, name, malt, food, yeast, hops} = props;
 
     const [loaded, setLoaded] = useState(false);
     const [cardsJSX, setCardsJSX] = useState("")
@@ -50,13 +50,10 @@ export const BeerList = (props) => {
 
     useEffect(() => {
         getCardsJSX(baseURL)
-    }, [name, hops, yeast, malt, food]);
-
-
+    }, [name, hops, yeast, malt, food, baseURL]);
 
     return (
         <>
-            <h1>{title}</h1>
             <p>{name}</p>
             <div className='cards'>
         
@@ -68,7 +65,6 @@ export const BeerList = (props) => {
                 : <p>Loading</p>
             }
             </div>
-            
         </>
     )
 }

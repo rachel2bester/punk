@@ -1,6 +1,6 @@
 @use "../../assets/sass/variables" as *;
 .card {
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 5px;
     width: 200px;
     height: 500px;
@@ -9,14 +9,14 @@
     display:flex;
     justify-content: space-around;
     flex-direction: column;
-    margin:5px;
-    background-color: #003844;
-    color: white;
+    margin: 5px;
+    background-color: $primary-color;
 
 
     &__heading {
         font-size: 25px;
         font-style: none;
+        font-family: $heading-font;
 
 
     }

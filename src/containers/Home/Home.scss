@@ -1,1 +1,11 @@
-@use "../../assets/sass/variables" as *;
+
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+}
+

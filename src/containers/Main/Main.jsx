@@ -9,6 +9,7 @@ const Main = (props) => {
 	const [yeast, setYeast] = useState("");
 	const [malt, setMalt] = useState("");
 	const [food, setFood] = useState("");
+	const [url, setUrl] = useState(baseURL)
 	
 	
 	const onNameChange = (event) => {
@@ -31,11 +32,33 @@ const Main = (props) => {
 		setFood(event.target.value);
 	};
 
+	const onRadioChange = (event) => {
+		console.log(event.target.id)
+		switch (event.target.id) {
+			case "classic":
+				setUrl(baseURL + "?brewed_before=01-2010");
+				break;
+	
+			case "high-alc":
+				setUrl(baseURL + "?abv_gt=6");
+				break;
+	
+			case "acidic":
+				break;
+		
+			default:
+				setUrl(baseURL);
+				break;
+		}
+		
+    }
+
  	return (
 		<>
 			<h1>{title}</h1>
-			<Filters onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
-			<BeerList title="Beers" hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={baseURL} />
+			<p>{url}</p>
+			<Filters onRadioChange={onRadioChange} onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
+			<BeerList hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={url} />
 		</>
   	);
 };

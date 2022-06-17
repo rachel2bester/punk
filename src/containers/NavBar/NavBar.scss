@@ -2,15 +2,15 @@
 
 .navbar {
     display: grid;
-    grid-template-columns: 70px 1fr 120px;
-    width: 100vw;
-    height: 40px;
+    grid-template-columns: 90px 1fr 160px;
+    width: 99.5;
+    height: 45px;
+    align-self: center;
 
     color: $black;
     background-color: rgb(67,201,213);
     text-decoration: none;
     font-family: $heading-font;
-    font-size: 30px;
+    font-size: 38px;
     text-align: center;
-    
 }

@@ -14,7 +14,6 @@ const BeerInfo = (props) => {
         const data = await response.json();
         setResponseOK(response.ok)
         setBeer(data[0])
-        
         setLoaded(true)
         console.log(beer)
     } 
