@@ -22,7 +22,7 @@ const BeerInfo = (props) => {
     } 
 
     useEffect(() => {
-        getBeerInfo(baseURL)
+        getBeerInfo(baseURL) 
     }, []);
 
 
@@ -35,6 +35,13 @@ const BeerInfo = (props) => {
 
                         <h1 className='beer-info__heading'>{beer.description}</h1>
                         <Srm srm={beer.srm}/>
+                        <div className='beer-info__attributes'>
+                            <p className='beer-info__attributes__attribute'>Alcohol By Volume: <br/>{beer.abv}%</p>
+                            <p className='beer-info__attributes__attribute'>Bitterness: <br/>{beer.ibu} IBU</p>
+                            <p className='beer-info__attributes__attribute'>pH: <br/>{beer.ph}</p>
+                        </div>
+                        
+
 
                         <div className='beer-info__brewing'>
                             <h2 className='beer-info__brewing__heading'>Brewers Tip:</h2>

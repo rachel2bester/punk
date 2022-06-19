@@ -11,6 +11,9 @@ const Main = (props) => {
 	const [malt, setMalt] = useState("");
 	const [food, setFood] = useState("");
 	const [url, setUrl] = useState(baseURL)
+
+	const [searchTerm, setSearchTerm] = useState("");
+	const [searchType, setSearchType] = useState("name");
 	
 	
 	const onNameChange = (event) => {
@@ -31,6 +34,15 @@ const Main = (props) => {
 	
 	const onFoodChange = (event) => {
 		setFood(event.target.value);
+	};
+
+	const onSearchTermChange = (event) => {
+		setSearchTerm(event.target.value);
+	};
+
+	const onSearchTypeChange = (event) => {
+		console.log(event.target.value)
+		setSearchType(event.target.value);
 	};
 
 	const onRadioChange = (event) => {
@@ -57,8 +69,8 @@ const Main = (props) => {
  	return (
 		<div className="main">
 			<h1 className="main__heading">{title}</h1>
-			<Filters onRadioChange={onRadioChange} onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
-			<BeerList hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={url} />
+			<Filters searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
+			<BeerList searchType={searchType} searchTerm={searchTerm}  hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={url} />
 		</div>
   	);
 };

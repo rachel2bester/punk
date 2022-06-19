@@ -10,15 +10,18 @@
     flex-direction: column;
     background-color: $tertiary-color;
     color: white;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: $heading-font;
 
     &__heading {
         font-size: 25px;
         font-style: none;
-        font-family: $heading-font;
+        
     }
     &__tagline {
         font-size: 15px;
+        font-weight: normal;
     }
     &__img {
         height: 280px;

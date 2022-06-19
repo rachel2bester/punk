@@ -6,7 +6,7 @@ import "./BeerList.scss"
 
 export const BeerList = (props) => {
     
-    const {baseURL, name, malt, food, yeast, hops} = props;
+    const {baseURL, searchType, searchTerm, name, malt, food, yeast, hops} = props;
 
     const [loaded, setLoaded] = useState(false);
     const [cardsJSX, setCardsJSX] = useState("")
@@ -15,22 +15,28 @@ export const BeerList = (props) => {
 
     const getCardsJSX = async (baseURL) => {
         let url = baseURL.includes("?") ?  baseURL +"&" : baseURL + "?"
+        if (searchTerm) {
+            switch (searchType) {
+                case "name":
+                    url += `beer_name=`
+                    break;
+                case "hops":
+                    url += `hops=`
+                    break;
+                case "yeast":
+                    url += `yeast=`
+                    break;
+                case "malt":
+                    url += `malt=`
+                    break;
+                case "food":
+                    url += `food=`
+                    break;
+            }
+            url += searchTerm;
+        }
 
-        if (name) {
-            url += `&beer_name=${name}`
-        }
-        if (hops) {
-            url += `&hops=${hops}`
-        }
-        if (yeast) {
-            url += `&yeast=${yeast}`
-        }
-        if (malt) {
-            url += `&malt=${malt}`
-        }
-        if (food) {
-            url += `&food=${food}`
-        }
+        
  
         console.log(url)
 
@@ -50,11 +56,11 @@ export const BeerList = (props) => {
 
     useEffect(() => {
         getCardsJSX(baseURL)
-    }, [name, hops, yeast, malt, food, baseURL]);
+    }, [searchTerm, searchType, baseURL]);
 
     return (
 
-        <div className='cards'>
+        <div className='cards'> 
     
         {loaded ? 
             ( responseOK ?

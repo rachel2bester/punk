@@ -20,8 +20,6 @@ const RandomBeer = ({url}) => {
         
     } 
 
-
-
     useEffect(() => {
         getRandomBeer(url)
     }, []);

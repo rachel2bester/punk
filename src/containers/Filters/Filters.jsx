@@ -1,26 +1,41 @@
 import React from 'react'
-import SearchBar from '../../components/Search/SearchBar'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import "./Filters.scss"
 
 const Filters = (props) => {
-    const {onNameChange, onHopsChange, onMaltChange, onFoodChange, onYeastChange, onRadioChange} = props
+    const {searchType, onSearchTermChange, onSearchTypeChange, onNameChange, onHopsChange, onMaltChange, onFoodChange, onYeastChange, onRadioChange} = props
     return (
         <div className='filters'>
-            <SearchBar label={"name"} onChange={onNameChange}/>
-            <SearchBar label={"hops"} onChange={onHopsChange}/>
-            <SearchBar label={"yeast"} onChange={onYeastChange}/>
-            <SearchBar label={"malt"} onChange={onMaltChange}/>
-            <SearchBar label={"food"} onChange={onFoodChange}/>
+            <form className="filters__search">
+                <label htmlFor="searchType">Search By: </label>
+                <select className='filters__search__type' onChange={onSearchTypeChange} name="searchType" id="searchType">
+                    <option value="name">Name</option>
+                    <option value="hops">Hops</option>
+                    <option value="malt">Malt</option>
+                    <option value="food">Food</option>
+                    <option value="yeast">Yeast</option>
+                </select>
+                <SearchBar label={searchType} onChange={onSearchTermChange}/>
+            </form>
+            
 
-            <form onChange={onRadioChange}>
-                <label htmlFor="all">All</label>
+            <form className="filters__radio" onChange={onRadioChange}>
+                <div>
+                <label htmlFor="all">All </label>
                 <input type="radio" name="filter" id="all" />
-
-                <label htmlFor="classic">Classic</label>
+                </div>
+                <div>
+                <label htmlFor="classic">Classic </label>
                 <input type="radio" name="filter" id="classic" />
-
-                <label htmlFor="high-alc">High Alcohol</label>
+                </div>
+                <div>
+                <label htmlFor="high-alc">High Alcohol </label>
                 <input type="radio" name="filter" id="high-alc" />
+                </div>
+            </form>
+
+            <form className='filters__page-numbers'>
+                <p>123456789</p>
             </form>
 
         </div>
