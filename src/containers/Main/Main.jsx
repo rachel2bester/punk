@@ -1,40 +1,16 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { BeerList } from "../BeerList/BeerList";
 import Filters from "../Filters/Filters";
 import "./Main.scss"
 
 const Main = (props) => {
 	const { baseURL, title } = props;
-	const [name, setName] = useState("");
-	const [hops, setHops] = useState("");
-	const [yeast, setYeast] = useState("");
-	const [malt, setMalt] = useState("");
-	const [food, setFood] = useState("");
+	const [page, setPage] = useState(1);
 	const [url, setUrl] = useState(baseURL)
+	const [nextPageURL, setNextPageURL] = useState("")
 
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchType, setSearchType] = useState("name");
-	
-	
-	const onNameChange = (event) => {
-		setName(event.target.value);
-	};
-	
-	const onHopsChange = (event) => {
-		setHops(event.target.value);
-	};
-	
-	const onYeastChange = (event) => {
-		setYeast(event.target.value);
-	};
-	
-	const onMaltChange = (event) => {
-		setMalt(event.target.value);
-	};
-	
-	const onFoodChange = (event) => {
-		setFood(event.target.value);
-	};
 
 	const onSearchTermChange = (event) => {
 		setSearchTerm(event.target.value);
@@ -44,6 +20,22 @@ const Main = (props) => {
 		console.log(event.target.value)
 		setSearchType(event.target.value);
 	};
+
+	const handlePageInc = () => {
+		setPage(page + 1)
+	}
+
+	const handlePageDec = () => {
+		setPage(page - 1)
+	}
+
+	const pageReset = () => {
+		setPage(1)
+	}
+
+	useEffect(() => {
+		console.log(nextPageURL)
+	}, [nextPageURL])
 
 	const onRadioChange = (event) => {
 		console.log(event.target.id)
@@ -63,14 +55,13 @@ const Main = (props) => {
 				setUrl(baseURL);
 				break;
 		}
-		
     }
 
  	return (
 		<div className="main">
 			<h1 className="main__heading">{title}</h1>
-			<Filters searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} onNameChange={onNameChange} onHopsChange={onHopsChange} onYeastChange={onYeastChange} onMaltChange={onMaltChange} onFoodChange={onFoodChange} />
-			<BeerList searchType={searchType} searchTerm={searchTerm}  hops={hops} yeast={yeast} malt={malt} food={food} name={name} baseURL={url} />
+			<Filters nextPageURL={nextPageURL} handlePageDec={handlePageDec} handlePageInc={handlePageInc} page={page} searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} />
+			<BeerList setNextPageURL={setNextPageURL} page={page} pageReset={pageReset} searchType={searchType} searchTerm={searchTerm} baseURL={url} />
 		</div>
   	);
 };

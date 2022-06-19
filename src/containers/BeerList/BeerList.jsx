@@ -6,7 +6,7 @@ import "./BeerList.scss"
 
 export const BeerList = (props) => {
     
-    const {baseURL, searchType, searchTerm, name, malt, food, yeast, hops} = props;
+    const {setNextPageURL, page, pageReset, baseURL, searchType, searchTerm} = props;
 
     const [loaded, setLoaded] = useState(false);
     const [cardsJSX, setCardsJSX] = useState("")
@@ -33,12 +33,14 @@ export const BeerList = (props) => {
                     url += `food=`
                     break;
             }
-            url += searchTerm;
+            url += searchTerm + "&";
         }
 
-        
- 
-        console.log(url)
+        setNextPageURL(url + `page=${page + 1}&`)
+
+        if (page !== 1) {
+            url += `page=${page}&`
+        }
 
         const response = await fetch(url)
         const data = await response.json();
@@ -55,8 +57,18 @@ export const BeerList = (props) => {
 
 
     useEffect(() => {
-        getCardsJSX(baseURL)
+        if (page === 1) {
+            getCardsJSX(baseURL)
+        } else {
+            pageReset()
+        }
+        
     }, [searchTerm, searchType, baseURL]);
+
+    useEffect(() =>{
+        console.log("here")
+        getCardsJSX(baseURL)
+    }, [page])
 
     return (
 

@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import "./Filters.scss"
 
 const Filters = (props) => {
-    const {searchType, onSearchTermChange, onSearchTypeChange, onNameChange, onHopsChange, onMaltChange, onFoodChange, onYeastChange, onRadioChange} = props
+    const {page, nextPageURL, handlePageDec, handlePageInc, searchType, onSearchTermChange, onSearchTypeChange, onRadioChange} = props;
+
+    const [isNextPage, setIsNextPage] = useState(false)
+
+    useEffect(() => {
+        getNextPage(nextPageURL)
+    }, [nextPageURL])
+
+    const getNextPage = async (url) => {
+        const response = await fetch(url)
+        const data = await response.json();
+        console.log(data)
+        if (data.length) {
+            setIsNextPage(true)
+        } else {
+            setIsNextPage(false)
+        }
+    }
+
     return (
         <div className='filters'>
             <form className="filters__search">
@@ -32,11 +50,17 @@ const Filters = (props) => {
                 <label htmlFor="high-alc">High Alcohol </label>
                 <input type="radio" name="filter" id="high-alc" />
                 </div>
+                <div>
+                <label htmlFor="acidic">High Acidity </label>
+                <input type="radio" name="filter" id="acidic" />
+                </div>
             </form>
 
-            <form className='filters__page-numbers'>
-                <p>123456789</p>
-            </form>
+            <div className='filters__page-numbers'>
+                {page !== 1 && <button onClick={handlePageDec}>previous page</button>}
+                <p>{page}</p>
+                {isNextPage && <button onClick={handlePageInc}>next page</button>}
+            </div>
 
         </div>
     )
