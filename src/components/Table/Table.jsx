@@ -35,12 +35,3 @@ const Table = (props) => {
 } 
 
 export default Table 
-
-//arr.map((el) => { 
-    //     return (
-    //         <tr>
-    //             {el}
-    //             {/* {Object.values(el).map((value) => (<td>{value}</td>))} */}
-    //         </tr>
-    //     )
-    // })

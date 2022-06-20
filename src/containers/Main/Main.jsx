@@ -52,6 +52,7 @@ const Main = (props) => {
 				break;
 	
 			case "acidic":
+				setUrl(baseURL + "?acidic");
 				setTitle("High Acidity Beers")
 				break;
 		

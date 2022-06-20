@@ -35,14 +35,28 @@ export const BeerList = (props) => {
             url += searchTerm + "&";
         }
 
+        let acidic = false;
+        if (url.includes("?acidic")) {
+            url = url.replace("?acidic", "?per_page=30&");
+            acidic = true;
+            console.log(url)
+        }
+        console.log(url)
+
         setNextPageURL(url + `page=${page + 1}&`)
 
         if (page !== 1) {
             url += `page=${page}&`
         }
+        console.log(url)
 
         const response = await fetch(url)
-        const data = await response.json();
+        let data = await response.json();
+        if (acidic) {
+            console.log(data.length)
+            data = data.filter((beer) => beer.ph < 6)
+            console.log(data.length)
+        }
         setResponseOK(response.ok)
         setCardsJSX(data.map((beer) => {
             return (
@@ -51,6 +65,7 @@ export const BeerList = (props) => {
                 </Link>
             )
         }))
+
         setLoaded(true)
     }
 
