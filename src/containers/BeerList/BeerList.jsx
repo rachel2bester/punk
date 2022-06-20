@@ -7,14 +7,13 @@ import "./BeerList.scss"
 export const BeerList = (props) => {
     
     const {setNextPageURL, page, pageReset, baseURL, searchType, searchTerm} = props;
-
-    const [loaded, setLoaded] = useState(false);
+    
     const [cardsJSX, setCardsJSX] = useState("")
-
+    const [loaded, setLoaded] = useState(false);
     const [responseOK, setResponseOK] = useState(undefined);
 
     const getCardsJSX = async (baseURL) => {
-        let url = baseURL.includes("?") ?  baseURL +"&" : baseURL + "?"
+        let url = baseURL.includes("?") ?  baseURL + "&" : baseURL + "?"
         if (searchTerm) {
             switch (searchType) {
                 case "name":
@@ -66,7 +65,6 @@ export const BeerList = (props) => {
     }, [searchTerm, searchType, baseURL]);
 
     useEffect(() =>{
-        console.log("here")
         getCardsJSX(baseURL)
     }, [page])
 
@@ -74,13 +72,13 @@ export const BeerList = (props) => {
 
         <div className='cards'> 
     
-        {loaded ? 
-            ( responseOK ?
-                cardsJSX
-                : <p>ERROR</p>)
+            {loaded ? 
+                ( responseOK ?
+                    cardsJSX
+                    : <p>ERROR</p>)
 
-            : <p>Loading</p>
-        }
+                : <p>Loading</p>
+            }
         </div>
     )
 }

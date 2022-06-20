@@ -4,7 +4,7 @@ import Filters from "../Filters/Filters";
 import "./Main.scss"
 
 const Main = (props) => {
-	const { baseURL, title } = props;
+	const { baseURL, title , start} = props;
 	const [page, setPage] = useState(1);
 	const [url, setUrl] = useState(baseURL)
 	const [nextPageURL, setNextPageURL] = useState("")
@@ -60,8 +60,8 @@ const Main = (props) => {
  	return (
 		<div className="main">
 			<h1 className="main__heading">{title}</h1>
-			<Filters nextPageURL={nextPageURL} handlePageDec={handlePageDec} handlePageInc={handlePageInc} page={page} searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} />
-			<BeerList setNextPageURL={setNextPageURL} page={page} pageReset={pageReset} searchType={searchType} searchTerm={searchTerm} baseURL={url} />
+			<Filters start={start} nextPageURL={nextPageURL} handlePageDec={handlePageDec} handlePageInc={handlePageInc} page={page} searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} />
+			<BeerList  setNextPageURL={setNextPageURL} page={page} pageReset={pageReset} searchType={searchType} searchTerm={searchTerm} baseURL={url} />
 		</div>
   	);
 };

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import "./Filters.scss"
+import Radio from '../../components/Radio/Radio';
 
 const Filters = (props) => {
-    const {page, nextPageURL, handlePageDec, handlePageInc, searchType, onSearchTermChange, onSearchTypeChange, onRadioChange} = props;
+    const {start, page, nextPageURL, handlePageDec, handlePageInc, searchType, onSearchTermChange, onSearchTypeChange, onRadioChange} = props;
 
     const [isNextPage, setIsNextPage] = useState(false)
 
@@ -35,27 +36,11 @@ const Filters = (props) => {
                 </select>
                 <SearchBar label={searchType} onChange={onSearchTermChange}/>
             </form>
+
+            <Radio start={start} onRadioChange={onRadioChange}/>
             
 
-            <form className="filters__radio" onChange={onRadioChange}>
-                <div>
-                <label htmlFor="all">All </label>
-                <input type="radio" name="filter" id="all" />
-                </div>
-                <div>
-                <label htmlFor="classic">Classic </label>
-                <input type="radio" name="filter" id="classic" />
-                </div>
-                <div>
-                <label htmlFor="high-alc">High Alcohol </label>
-                <input type="radio" name="filter" id="high-alc" />
-                </div>
-                <div>
-                <label htmlFor="acidic">High Acidity </label>
-                <input type="radio" name="filter" id="acidic" />
-                </div>
-            </form>
-
+            
             <div className='filters__page-numbers'>
                 {page !== 1 && <button onClick={handlePageDec}>previous page</button>}
                 <p>{page}</p>
