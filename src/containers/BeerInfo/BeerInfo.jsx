@@ -26,6 +26,8 @@ const BeerInfo = (props) => {
     }, []);
 
 
+
+
     return (
         <>
             {loaded ? 
@@ -40,15 +42,24 @@ const BeerInfo = (props) => {
                             <p className='beer-info__attributes__attribute'>Bitterness: <br/>{beer.ibu} IBU</p>
                             <p className='beer-info__attributes__attribute'>pH: <br/>{beer.ph}</p>
                         </div>
-                        
 
+                        <div className='beer-info__food-pairings'>
+                            <h2 className='beer-info__food-pairings__heading beer-info__heading'>Food Pairings</h2>
+                            <div className='beer-info__food-pairings__container'>
+                                {beer.food_pairing.map((food) => {
+                                    return<div className='beer-info__food-pairings__container__food'>{food}</div>
+                                })}
+                            </div>
+                        </div>
+
+                        <h3 className='beer-info__heading'>First Brewed: {beer.first_brewed}</h3>
 
                         <div className='beer-info__brewing'>
-                            <h2 className='beer-info__brewing__heading'>Brewers Tip:</h2>
+                            <h4 className='beer-info__brewing__heading'>Brewers Tip:</h4>
                             <p className='beer-info__brewing__p'>{beer.brewers_tips}</p>
 
-                            <h3 className='beer-info__brewing__heading'>Ingredients</h3>
-                            <h4 className='beer-info__brewing__subheading'>Yeast: {beer.ingredients.yeast}</h4>
+                            <h5 className='beer-info__brewing__heading'>Ingredients</h5>
+                            <h6 className='beer-info__brewing__subheading'>Yeast: {beer.ingredients.yeast}</h6>
 
                             <div className='beer-info__brewing__tables'>
                                 <Table title="Hops" key={`${beer.id}hops`} arr={beer.ingredients.hops}/>
@@ -59,7 +70,6 @@ const BeerInfo = (props) => {
                     </div>  
                     : <p className='beer-info__heading'>ERROR</p>
                 ) 
-
                 : <p className='beer-info__heading'>Loading Beer Info...</p> 
             }
         </>

@@ -90,9 +90,9 @@ export const BeerList = (props) => {
             {loaded ? 
                 ( responseOK ?
                     cardsJSX
-                    : <p>ERROR</p>)
+                    : <p className='beer-info__heading'>ERROR</p>)
 
-                : <p>Loading</p>
+                : <p className='beer-info__heading'>Loading</p>
             }
         </div>
     )
