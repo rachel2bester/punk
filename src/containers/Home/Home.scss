@@ -1,4 +1,4 @@
-
+@use "../../assets/sass/variables" as *;
 
 .home {
     display: flex;
@@ -6,6 +6,20 @@
     align-items: center;
     justify-content: center;
     background-color: white;
+}
 
+.categories {
+    display : flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    font-family: $heading-font;
+
+    &__category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 

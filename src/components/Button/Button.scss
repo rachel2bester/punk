@@ -1,0 +1,26 @@
+@use "../../assets/sass/variables" as *;
+
+.button {
+    font-family: $heading-font;
+    border: $tertiary-color 5px solid;
+    color: black;
+    background-color: $white;
+    padding: 10px;
+    font-size: 25px;
+
+    border-radius: 10px;
+
+    
+    &:hover {
+        background-color: $tertiary-color;
+        color: $white;
+    }
+}
+
+.big {
+    padding: 5px;
+    font-size: 40px;
+    letter-spacing: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

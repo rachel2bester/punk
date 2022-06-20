@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../../components/Button/Button'
 import Carousel from '../../components/Carousel/Carousel'
 import RandomBeer from '../RandomBeer/RandomBeer'
 import "./Home.scss"
@@ -11,7 +12,7 @@ const Home = ({url}) => {
 			<RandomBeer url={url}/>
 
             <Link to="/beers">
-            	<div>All Beers Link</div>
+            	<Button content="Browse All Beers" big={true}/>
 			</Link>
 
             <div className='categories'>
@@ -27,7 +28,7 @@ const Home = ({url}) => {
                     <h1 className='categories__category__heading'>Classic Beers</h1>
                     <Carousel url={url + "?brewed_before=01-2010&page=1"}/>
                     <Link to="/beers/classic">
-                        <button className='categories__category__button button'>Browse Classic Beers</button>
+                        <Button content={"Browse Classic Beers"}/>
                     </Link>
                 </div>
             </div>
