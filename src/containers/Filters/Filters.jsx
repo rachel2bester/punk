@@ -4,7 +4,7 @@ import "./Filters.scss"
 import Radio from '../../components/Radio/Radio';
 
 const Filters = (props) => {
-    const {start, page, nextPageURL, handlePageDec, handlePageInc, searchType, onSearchTermChange, onSearchTypeChange, onRadioChange} = props;
+    const {checked, page, nextPageURL, handlePageDec, handlePageInc, searchType, onSearchTermChange, onSearchTypeChange, onRadioChange} = props;
 
     const [isNextPage, setIsNextPage] = useState(false)
 
@@ -37,14 +37,14 @@ const Filters = (props) => {
                 <SearchBar label={searchType} onChange={onSearchTermChange}/>
             </form>
 
-            <Radio start={start} onRadioChange={onRadioChange}/>
+            <Radio checked={checked} onRadioChange={onRadioChange}/>
             
 
             
             <div className='filters__page-numbers'>
-                {page !== 1 && <button onClick={handlePageDec}>previous page</button>}
+                {page !== 1 && <button onClick={handlePageDec}>previous</button>}
                 <p>{page}</p>
-                {isNextPage && <button onClick={handlePageInc}>next page</button>}
+                {isNextPage && <button onClick={handlePageInc}>next</button>}
             </div>
 
         </div>

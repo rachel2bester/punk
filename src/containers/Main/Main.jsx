@@ -4,10 +4,12 @@ import Filters from "../Filters/Filters";
 import "./Main.scss"
 
 const Main = (props) => {
-	const { baseURL, title , start} = props;
+	const {startTitle, baseURL , start} = props;
 	const [page, setPage] = useState(1);
 	const [url, setUrl] = useState(baseURL)
 	const [nextPageURL, setNextPageURL] = useState("")
+	const [title, setTitle] = useState(startTitle)
+	const [checked, setChecked] = useState(start)
 
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchType, setSearchType] = useState("name");
@@ -17,7 +19,6 @@ const Main = (props) => {
 	};
 
 	const onSearchTypeChange = (event) => {
-		console.log(event.target.value)
 		setSearchType(event.target.value);
 	};
 
@@ -38,21 +39,25 @@ const Main = (props) => {
 	}, [nextPageURL])
 
 	const onRadioChange = (event) => {
-		console.log(event.target.id)
+		setChecked(event.target.id)
 		switch (event.target.id) {
 			case "classic":
 				setUrl(baseURL + "?brewed_before=01-2010");
+				setTitle("Classic Beers")
 				break;
 	
 			case "high-alc":
 				setUrl(baseURL + "?abv_gt=6");
+				setTitle("High Alcohol Beers")
 				break;
 	
 			case "acidic":
+				setTitle("High Acidity Beers")
 				break;
 		
 			default:
 				setUrl(baseURL);
+				setTitle("All Beers")
 				break;
 		}
     }
@@ -60,7 +65,7 @@ const Main = (props) => {
  	return (
 		<div className="main">
 			<h1 className="main__heading">{title}</h1>
-			<Filters start={start} nextPageURL={nextPageURL} handlePageDec={handlePageDec} handlePageInc={handlePageInc} page={page} searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} />
+			<Filters checked={checked} nextPageURL={nextPageURL} handlePageDec={handlePageDec} handlePageInc={handlePageInc} page={page} searchType={searchType} onSearchTypeChange={onSearchTypeChange} onSearchTermChange={onSearchTermChange} onRadioChange={onRadioChange} />
 			<BeerList  setNextPageURL={setNextPageURL} page={page} pageReset={pageReset} searchType={searchType} searchTerm={searchTerm} baseURL={url} />
 		</div>
   	);

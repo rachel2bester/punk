@@ -14,9 +14,9 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path="/" element={<Home url={url}/>}/>
-          <Route path="/beers" element={<Main title="All Beers" start="all" baseURL={url}/>}/>
-          <Route path="/beers/high-alc" element={<Main title="All Beers" start="high-alc" baseURL={url}/>}/>
-          <Route path="/beers/classic" element={<Main title="All Beers" start="classic" baseURL={url}/>}/>
+          <Route path="/beers" element={<Main startTitle="All Beers" start="all" baseURL={url}/>}/>
+          <Route path="/beers/high-alc" element={<Main startTitle="High Alcohol Beers" start="high-alc" baseURL={url}/>}/>
+          <Route path="/beers/classic" element={<Main startTitle="Classic Beers" start="classic" baseURL={url}/>}/>
           <Route path="/beers/:beerId" element={<BeerInfo baseURL={url}/>}/>
         </Routes>
         

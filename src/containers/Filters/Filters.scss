@@ -31,6 +31,18 @@
             width: 60px;
         }
     }
+    &__page-numbers {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        * {
+            height: 20px;
+            width: 60px;
+            padding: 0px;
+            text-align: center;
+        }
+
+    }
 }
 
 
