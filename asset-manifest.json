@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/punk/static/css/main.109367f0.css",
-    "main.js": "/punk/static/js/main.0caa6a34.js",
+    "main.js": "/punk/static/js/main.879f8056.js",
     "static/js/787.86644982.chunk.js": "/punk/static/js/787.86644982.chunk.js",
     "static/media/Veneer.ttf": "/punk/static/media/Veneer.a04c355e0851cb6e64cc.ttf",
     "index.html": "/punk/index.html",
     "main.109367f0.css.map": "/punk/static/css/main.109367f0.css.map",
-    "main.0caa6a34.js.map": "/punk/static/js/main.0caa6a34.js.map",
+    "main.879f8056.js.map": "/punk/static/js/main.879f8056.js.map",
     "787.86644982.chunk.js.map": "/punk/static/js/787.86644982.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.109367f0.css",
-    "static/js/main.0caa6a34.js"
+    "static/js/main.879f8056.js"
   ]
 }
